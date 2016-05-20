@@ -1,11 +1,9 @@
 PATH
   remote: .
   specs:
-    dswb-error_handler (1.0.5)
-      actionpack (>= 5.0.0.beta3)
-      activesupport (>= 5.0.0.beta3)
+    dswb-error_handler (1.0.6)
       exception_notification
-      rails (>= 5.0.0.beta3)
+      sentry-raven
 
 GEM
   remote: https://rubygems.org/
@@ -160,10 +158,10 @@ PLATFORMS
 
 DEPENDENCIES
   dswb-error_handler!
+  rails (>= 5.0.0.beta3)
   rake
   rspec (~> 3.4)
   rubocop
-  sentry-raven
   simplecov
 
 BUNDLED WITH

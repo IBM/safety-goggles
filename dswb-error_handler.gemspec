@@ -22,6 +22,9 @@ Gem::Specification.new do |spec|
   # Install geminabox on the system but don't include it here
   #  so that Sinatra doesn't conflict with Rails5 stuff
 
+  # ActionController, ActiveRecord, and ActiveModel error definitions
+  spec.add_development_dependency "rails", ">= 5.0.0.beta3"
+
   # To install the gem locally:
   # bundle exec rake install
   spec.add_development_dependency "rake"
@@ -37,14 +40,9 @@ Gem::Specification.new do |spec|
   # https://github.com/bbatsov/rubocop
   spec.add_development_dependency "rubocop"
 
-  # ActionController, ActiveRecord, and ActiveModel error definitions
-  spec.add_runtime_dependency "actionpack", ">= 5.0.0.beta3"
-  spec.add_runtime_dependency "activesupport", ">= 5.0.0.beta3"
-  spec.add_runtime_dependency "rails", ">= 5.0.0.beta3"
-
   # Send stacktraces
   spec.add_runtime_dependency "exception_notification"
 
   # Also send stacktraces
-  spec.add_development_dependency "sentry-raven"
+  spec.add_runtime_dependency "sentry-raven"
 end

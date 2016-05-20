@@ -1,22 +1,14 @@
-require "action_controller"
-require "active_model"
-require "active_model/validations"
-require "active_model/validator"
-require "active_record"
-require "dswb/unauthorized_error"
-require "rails"
-
 module Dswb
   class ErrorHandler
     ERROR_CODES = {
-      ActionController::ParameterMissing => 422,
-      ActionController::UnpermittedParameters => 422,
-      ActiveModel::ValidationError => 422,
-      ActiveRecord::RecordInvalid => 422,
-      ActiveRecord::RecordNotFound => 404,
-      ArgumentError => 422,
-      Dswb::UnauthorizedError => 401,
-      SecurityError => 403
+      "ActionController::ParameterMissing" => 422,
+      "ActionController::UnpermittedParameters" => 422,
+      "ActiveModel::ValidationError" => 422,
+      "ActiveRecord::RecordInvalid" => 422,
+      "ActiveRecord::RecordNotFound" => 404,
+      "ArgumentError" => 422,
+      "Dswb::UnauthorizedError" => 401,
+      "SecurityError" => 403
     }.freeze
 
     SEVERITIES = {
@@ -25,9 +17,9 @@ module Dswb
       403 => "error"
     }.freeze
 
-    def self.handle_error(error, code = nil, env = Rails.env)
-      logger.debug("::handle_error called with #{error}, #{code}")
-      code = ERROR_CODES.fetch(error.class, 500) if code.nil?
+    def self.handle_error(error, env = ErrorHandler.guess_env)
+      logger.debug("::handle_error called with #{error}, #{env}")
+      code = ERROR_CODES.fetch(error.class.to_s, 500) if code.nil?
 
       logger.error("ERROR: #{code} \n#{error.class} \n#{error}")
       logger.error(get_backtrace(error).join("\n"))
@@ -39,7 +31,7 @@ module Dswb
 
     # :nocov:
     def self.handle_serious_error(error, code, env)
-      logger.debug("::handle_serious_error called with #{error}, #{code}")
+      logger.debug("::handle_serious_error called with #{error}, #{code}, #{env}")
       severity = SEVERITIES.fetch(code, "warning")
 
       Raven.capture_exception(error,
@@ -56,17 +48,24 @@ module Dswb
     # :nocov:
 
     def self.serious_env?
+      return false unless defined?(Rails)
       Rails.env.production? || Rails.env.staging?
     end
 
     def self.get_backtrace(error)
       return [] unless error.respond_to?(:backtrace)
+      return [] if error.backtrace.nil?
       error.backtrace.reject { |line| %r{/gems/}.match(line).present? }
     end
 
     def self.logger
-      return Rails.logger if Rails.respond_to?(:logger) && Rails.logger.present?
+      return Rails.logger if defined?(Rails) && Rails.respond_to?(:logger) && Rails.logger.present?
       Logger.new(STDOUT)
+    end
+
+    def self.guess_env
+      return Rails.env if defined?(Rails) && Rails.respond_to?(:env) && Rails.env.present?
+      "development"
     end
   end
 end
