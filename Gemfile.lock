@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dswb-error_handler (1.0.3)
+    dswb-error_handler (1.0.5)
       actionpack (>= 5.0.0.beta3)
       activesupport (>= 5.0.0.beta3)
       exception_notification

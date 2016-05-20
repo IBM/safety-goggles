@@ -5,6 +5,7 @@ deploy/staging/staging.yml
 development/
 .idea/
 .DS_Store
+pkg/
 production.secret.env
 .ruby-env
 staging.secret.env
