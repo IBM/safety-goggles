@@ -64,7 +64,7 @@ end
 *   To install the gem locally:
 
     ```shell
-    rake install || gem install pkg/*.gem --ignore-dependencies
+    rake build && gem install pkg/*.gem --ignore-dependencies
     ```
 
 *   Configure your machine for pushing our gem server:
