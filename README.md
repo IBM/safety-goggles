@@ -6,6 +6,16 @@ convenience.
 You still need to configure Sentry and ExceptionNotification gems
 separately. This gem is for invocation, not configuration.
 
+
+## Installation
+
+```ruby
+source "https://chef.imdemocloud.com:9292/" do
+  # Report errors to Sentry
+  gem "dswb-error_handler", "~> 1.0.6"
+end
+```
+
 ## Sample Usage
 
 In a controller such as `application_controller.rb`:
