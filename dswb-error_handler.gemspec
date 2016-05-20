@@ -38,5 +38,13 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubocop"
 
   # ActionController, ActiveRecord, and ActiveModel error definitions
-  spec.add_runtime_dependency "rails"
+  spec.add_runtime_dependency "actionpack", ">= 5.0.0.beta3"
+  spec.add_runtime_dependency "activesupport", ">= 5.0.0.beta3"
+  spec.add_runtime_dependency "rails", ">= 5.0.0.beta3"
+
+  # Send stacktraces
+  spec.add_runtime_dependency "exception_notification"
+
+  # Also send stacktraces
+  spec.add_development_dependency "sentry-raven"
 end
