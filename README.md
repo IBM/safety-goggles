@@ -6,6 +6,46 @@ convenience.
 You still need to configure Sentry and ExceptionNotification gems
 separately. This gem is for invocation, not configuration.
 
+## Sample Usage
+
+In a controller such as `application_controller.rb`:
+
+```ruby
+rescue_from Exception, with: :render_error
+
+def render_error(error)
+  require "dswb/error_handler"
+  code = Dswb::ErrorHandler.handle_error(error)
+
+  render status: code, json: { code: code, message: error.to_s }
+end
+```
+
+If you'd like to configure HTTP Basic Auth to throw exceptions and trigger
+the above code path, you can do this in the controller:
+
+```ruby
+include ActionController::HttpAuthentication::Basic::ControllerMethods
+
+MY_USERNAME = ENV.fetch("MY_USERNAME")
+MY_PASSWORD = ENV.fetch("MY_PASSWORD")
+
+before_action do
+  success = authenticate_with_http_basic do |name, password|
+    # This comparison uses & so that it doesn't short circuit and
+    # uses `variable_size_secure_compare` so that length information
+    # isn't leaked.
+    ActiveSupport::SecurityUtils.variable_size_secure_compare(name, MY_USERNAME) &
+      ActiveSupport::SecurityUtils.variable_size_secure_compare(password, MY_PASSWORD)
+  end
+
+  require "dswb/unauthorized_error"
+  raise Dswb::UnauthorizedError, "HTTP Basic: Access denied." unless success
+
+  success
+end
+```
+
 ## Build as a Gem
 
 *   Geminabox uses Sinatra which conflicts with Rails5 libraries. Install
