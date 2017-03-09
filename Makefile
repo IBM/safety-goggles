@@ -1,4 +1,4 @@
-.PHONY: build clean precommit push spec
+.PHONY: build clean precommit publish spec
 
 VERSION:=$(shell cat VERSION)
 
@@ -9,8 +9,8 @@ build: precommit tag
 clean:
 	rm *.gem
 
-push: build
-	gem push *-$(VERSION).gem
+publish: build
+	gem inabox *.gem
 	make clean
 
 precommit:
