@@ -1,11 +1,10 @@
 # coding: utf-8
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "dswb/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "dswb-error_handler"
-  spec.version       = Dswb::VERSION
+  spec.version       = File.open("VERSION", "r").read.strip
   spec.authors       = ["Leons Petrazickis"]
   spec.email         = ["leonsp@ca.ibm.com"]
   spec.summary       = "Client for the Data Scientist Workbench Users database"
@@ -22,8 +21,11 @@ Gem::Specification.new do |spec|
   # Install geminabox on the system but don't include it here
   #  so that Sinatra doesn't conflict with Rails5 stuff
 
+  # Force dependency update
+  spec.add_development_dependency "nokogiri", ">= 1.6.8"
+
   # ActionController, ActiveRecord, and ActiveModel error definitions
-  spec.add_development_dependency "rails", ">= 5.0.0.beta3"
+  spec.add_development_dependency "rails", ">= 5.0.2"
 
   # To install the gem locally:
   # bundle exec rake install
@@ -39,6 +41,8 @@ Gem::Specification.new do |spec|
   # Ruby Style Guide.
   # https://github.com/bbatsov/rubocop
   spec.add_development_dependency "rubocop"
+
+  spec.add_development_dependency "bundler-audit"
 
   # Send stacktraces
   spec.add_runtime_dependency "exception_notification"

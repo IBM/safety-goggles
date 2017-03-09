@@ -12,7 +12,7 @@ separately. This gem is for invocation, not configuration.
 ```ruby
 source "https://chef.imdemocloud.com:9292/" do
   # Report errors to Sentry
-  gem "dswb-error_handler", "~> 1.0.6"
+  gem "dswb-error_handler", "~> 1.1.0"
 end
 ```
 

@@ -1,3 +1,5 @@
+require "exception_notification"
+
 module Dswb
   class ErrorHandler
     ERROR_CODES = {
@@ -7,6 +9,7 @@ module Dswb
       "ActiveRecord::RecordInvalid" => 422,
       "ActiveRecord::RecordNotFound" => 404,
       "ArgumentError" => 422,
+      "Dswb::RecordNotFoundError" => 404,
       "Dswb::UnauthorizedError" => 401,
       "SecurityError" => 403
     }.freeze
@@ -39,7 +42,7 @@ module Dswb
         level: severity,
         tags:  { code: code, class: error.class })
 
-      if %w(fatal).include?(severity)
+      if %w(fatal).include?(severity) && !defined?(ExceptionNotifier).nil?
         ExceptionNotifier.notify_exception(error,
           env:  env,
           data: { message: error.to_s })

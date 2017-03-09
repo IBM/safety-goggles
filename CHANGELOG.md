@@ -1,3 +1,8 @@
+# DSWB Error Handler 1.1.0
+
+*   More resilience
+*   `RecordNotFoundError`
+
 # 1.0.6
 
 *   Removed runtime dependency on Rails

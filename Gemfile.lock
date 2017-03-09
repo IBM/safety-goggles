@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dswb-error_handler (1.0.6)
+    dswb-error_handler (1.1.0)
       exception_notification
       sentry-raven
 
@@ -48,6 +48,9 @@ GEM
     arel (7.0.0)
     ast (2.2.0)
     builder (3.2.2)
+    bundler-audit (0.5.0)
+      bundler (~> 1.2)
+      thor (~> 0.18)
     concurrent-ruby (1.0.2)
     diff-lcs (1.2.5)
     docile (1.1.5)
@@ -69,12 +72,12 @@ GEM
     mime-types (3.0)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0221)
-    mini_portile2 (2.0.0)
+    mini_portile2 (2.1.0)
     minitest (5.9.0)
     multipart-post (2.0.0)
     nio4r (1.2.1)
-    nokogiri (1.6.7.2)
-      mini_portile2 (~> 2.0.0.rc2)
+    nokogiri (1.6.8.1)
+      mini_portile2 (~> 2.1.0)
     parser (2.3.1.0)
       ast (~> 2.2)
     powerpack (0.1.1)
@@ -130,8 +133,8 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
-    sentry-raven (1.0.0)
-      faraday (>= 0.7.6)
+    sentry-raven (1.2.2)
+      faraday (>= 0.7.6, < 0.10.x)
     simplecov (0.11.2)
       docile (~> 1.1.0)
       json (~> 1.8)
@@ -157,12 +160,17 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler-audit
   dswb-error_handler!
+  nokogiri (>= 1.6.8)
   rails (>= 5.0.0.beta3)
   rake
   rspec (~> 3.4)
   rubocop
   simplecov
 
+RUBY VERSION
+   ruby 2.3.1p112
+
 BUNDLED WITH
-   1.11.2
+   1.12.5

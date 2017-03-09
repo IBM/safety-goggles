@@ -5,6 +5,7 @@ require "active_model/validator"
 require "active_record"
 
 require "dswb/error_handler"
+require "dswb/record_not_found_error"
 require "dswb/unauthorized_error"
 
 RSpec.describe(Dswb::ErrorHandler) do
@@ -24,6 +25,7 @@ RSpec.describe(Dswb::ErrorHandler) do
       ActiveRecord::RecordInvalid => 422,
       ActiveRecord::RecordNotFound => 404,
       ArgumentError => 422,
+      Dswb::RecordNotFoundError => 404,
       Dswb::UnauthorizedError => 401,
       SecurityError => 403
     }.freeze
@@ -38,6 +40,7 @@ RSpec.describe(Dswb::ErrorHandler) do
 
     it "handles 404s" do
       expect(Dswb::ErrorHandler.handle_error(ActiveRecord::RecordNotFound.new("Hi"))).to eq(404)
+      expect(Dswb::ErrorHandler.handle_error(Dswb::RecordNotFoundError.new("Hi"))).to eq(404)
     end
 
     it "handles 422s" do
