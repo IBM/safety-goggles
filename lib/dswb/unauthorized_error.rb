@@ -1,4 +1,4 @@
 module Dswb
-  class RecordNotFoundError < StandardError
+  class UnauthorizedError < StandardError
   end
 end

@@ -24,6 +24,7 @@ RSpec.describe(Dswb::ErrorHandler) do
       ActiveModel::ValidationError => 422,
       ActiveRecord::RecordInvalid => 422,
       ActiveRecord::RecordNotFound => 404,
+      ActiveRecord::RecordNotUnique => 422,
       ArgumentError => 422,
       Dswb::RecordNotFoundError => 404,
       Dswb::UnauthorizedError => 401,
@@ -45,6 +46,7 @@ RSpec.describe(Dswb::ErrorHandler) do
 
     it "handles 422s" do
       expect(Dswb::ErrorHandler.handle_error(ActionController::ParameterMissing.new("Hi"))).to eq(422)
+      expect(Dswb::ErrorHandler.handle_error(ActiveRecord::RecordNotUnique.new("Hi"))).to eq(422)
       expect(Dswb::ErrorHandler.handle_error(ActionController::UnpermittedParameters.new(["Hi"]))).to eq(422)
       expect(Dswb::ErrorHandler.handle_error(ArgumentError.new("Hi"))).to eq(422)
     end

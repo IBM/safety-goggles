@@ -8,6 +8,7 @@ module Dswb
       "ActiveModel::ValidationError" => 422,
       "ActiveRecord::RecordInvalid" => 422,
       "ActiveRecord::RecordNotFound" => 404,
+      "ActiveRecord::RecordNotUnique" => 422,
       "ArgumentError" => 422,
       "Dswb::RecordNotFoundError" => 404,
       "Dswb::UnauthorizedError" => 401,

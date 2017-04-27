@@ -1,7 +1,12 @@
+# DSWB Error Handler 1.2.2
+
+*   Handle `ActiveRecord::RecordNotUnique` as a 422
+*   Swap RecordNotFound and Unauthorized error definitions
+
 # DSWB Error Handler 1.1.0
 
 *   More resilience
-*   `RecordNotFoundError`
+*   Handle `Dswb::RecordNotFoundError` as a 404
 
 # 1.0.6
 
