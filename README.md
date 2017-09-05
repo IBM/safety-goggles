@@ -12,7 +12,7 @@ separately. This gem is for invocation, not configuration.
 ```ruby
 source "https://chef.imdemocloud.com:9292/" do
   # Report errors to Sentry
-  gem "dswb-error_handler", "~> 1.1.0"
+  gem "safety_goggles", "~> 1.1.0"
 end
 ```
 
@@ -24,8 +24,8 @@ In a controller such as `application_controller.rb`:
 rescue_from Exception, with: :render_error
 
 def render_error(error)
-  require "dswb/error_handler"
-  code = Dswb::ErrorHandler.handle_error(error)
+  require "safety_goggles"
+  code = SafetyGoggles::Handler.handle_error(error)
 
   render status: code, json: { code: code, message: error.to_s }
 end
@@ -49,8 +49,8 @@ before_action do
       ActiveSupport::SecurityUtils.variable_size_secure_compare(password, MY_PASSWORD)
   end
 
-  require "dswb/unauthorized_error"
-  raise Dswb::UnauthorizedError, "HTTP Basic: Access denied." unless success
+  require "safety_goggles-unauthorized_error"
+  raise SafetyGoggles::UnauthorizedError, "HTTP Basic: Access denied." unless success
 
   success
 end

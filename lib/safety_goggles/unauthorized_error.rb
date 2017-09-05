@@ -1,4 +1,4 @@
-module Dswb
+module SafetyGoggles
   class UnauthorizedError < StandardError
   end
 end

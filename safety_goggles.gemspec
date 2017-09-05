@@ -3,14 +3,14 @@ lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
-  spec.name          = "dswb-error_handler"
+  spec.name          = "safety_goggles"
   spec.version       = File.open("VERSION", "r").read.strip
   spec.authors       = ["Leons Petrazickis"]
   spec.email         = ["leonsp@ca.ibm.com"]
-  spec.summary       = "Client for the Data Scientist Workbench Users database"
+  spec.summary       = "Rails error handler that integrates with Sentry"
   spec.description   = spec.summary
-  spec.homepage      = "http://datascientistworkbench.com"
-  spec.license       = "Copyright (c) 2016 IBM"
+  spec.homepage      = "http://cognitiveclass.ai"
+  spec.license       = "Copyright (c) 2017 IBM"
 
   # TODO: Remove dependency on git.
   spec.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   #  so that Sinatra doesn't conflict with Rails5 stuff
 
   # Force dependency update
-  spec.add_development_dependency "nokogiri", ">= 1.7.1"
+  spec.add_development_dependency "nokogiri", ">= 1.7.2"
 
   # ActionController, ActiveRecord, and ActiveModel error definitions
   spec.add_development_dependency "rails", ">= 5.0.2"
@@ -37,12 +37,15 @@ Gem::Specification.new do |spec|
   # Test coverage report
   spec.add_development_dependency "simplecov", ">= 0.11.1"
 
+  # Continuous Integration
+  spec.add_development_dependency "travis", "~> 1.8"
+
   # Automatic Ruby code style checking tool. Aims to enforce the community-driven
   # Ruby Style Guide.
   # https://github.com/bbatsov/rubocop
   spec.add_development_dependency "rubocop"
 
-  spec.add_development_dependency "bundler-audit"
+  spec.add_development_dependency "bundler-audit", "~> 0.6"
 
   # Send stacktraces
   spec.add_runtime_dependency "exception_notification"

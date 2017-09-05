@@ -1,9 +1,11 @@
-require "dswb/unauthorized_error"
+require "safety_goggles/unauthorized_error"
 
-RSpec.describe(Dswb::UnauthorizedError) do
+RSpec.describe(SafetyGoggles::UnauthorizedError) do
   describe :new do
     it "can be thrown" do
-      expect { raise Dswb::UnauthorizedError, "This is an error" }.to raise_error(Dswb::UnauthorizedError)
+      expect { raise SafetyGoggles::UnauthorizedError, "This is an error" }.to(
+        raise_error(SafetyGoggles::UnauthorizedError)
+      )
     end
   end
 end

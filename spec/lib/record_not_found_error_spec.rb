@@ -1,9 +1,11 @@
-require "dswb/record_not_found_error"
+require "safety_goggles/record_not_found_error"
 
-RSpec.describe(Dswb::RecordNotFoundError) do
+RSpec.describe(SafetyGoggles::RecordNotFoundError) do
   describe :new do
     it "can be thrown" do
-      expect { raise Dswb::RecordNotFoundError, "This is an error" }.to raise_error(Dswb::RecordNotFoundError)
+      expect { raise SafetyGoggles::RecordNotFoundError, "This is an error" }.to(
+        raise_error(SafetyGoggles::RecordNotFoundError)
+      )
     end
   end
 end

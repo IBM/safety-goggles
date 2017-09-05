@@ -1,7 +1,7 @@
 require "exception_notification"
 
-module Dswb
-  class ErrorHandler
+module SafetyGoggles
+  class Handler
     ERROR_CODES = {
       "ActionController::ParameterMissing" => 422,
       "ActionController::UnpermittedParameters" => 422,
@@ -10,8 +10,8 @@ module Dswb
       "ActiveRecord::RecordNotFound" => 404,
       "ActiveRecord::RecordNotUnique" => 422,
       "ArgumentError" => 422,
-      "Dswb::RecordNotFoundError" => 404,
-      "Dswb::UnauthorizedError" => 401,
+      "SafetyGoggles::RecordNotFoundError" => 404,
+      "SafetyGoggles::UnauthorizedError" => 401,
       "SecurityError" => 403
     }.freeze
 
@@ -21,7 +21,7 @@ module Dswb
       403 => "error"
     }.freeze
 
-    def self.handle_error(error, env = ErrorHandler.guess_env)
+    def self.handle_error(error, env = Handler.guess_env)
       logger.debug("::handle_error called with #{error}, #{env}")
       code = ERROR_CODES.fetch(error.class.to_s, 500) if code.nil?
 
