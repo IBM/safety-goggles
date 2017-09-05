@@ -10,9 +10,9 @@ separately. This gem is for invocation, not configuration.
 ## Installation
 
 ```ruby
-source "https://chef.imdemocloud.com:9292/" do
+source "https://na.artifactory.swg-devops.com/artifactory/api/gems/apset-ruby" do
   # Report errors to Sentry
-  gem "safety_goggles", "~> 1.1.0"
+  gem "safety_goggles", "~> 2.0"
 end
 ```
 
@@ -58,43 +58,17 @@ end
 
 ## Build as a Gem
 
-*   Geminabox uses Sinatra which conflicts with Rails5 libraries. Install
-    `geminabox` on the system but don't include it in the Gemfile.
-
-    ```shell
-    gem install geminabox
+-   Travis CI will build and publish a new version of the gem 
+    whenever you push a new tag:
+    
+    ```
+    git tag -a 2.0.0 -m v2.0.0 && git push --tags
     ```
 
-*   To run tests:
-
-    ```shell
-    bundle exec rspec
-    ```
-
-*   To install the gem locally:
-
-    ```shell
-    bundle exec rake build && gem install pkg/*.gem --ignore-dependencies
-    ```
-
-*   Configure your machine for pushing our gem server:
-
-    ```shell
-    gem inabox -c
-    ```
-
-    Enter the root url for your personal geminabox instance
-    (e.g. <http://gems/>). See
-    [credentials](https://w3-connections.ibm.com/wikis/home?lang=en-us#!/wiki/IM%20Demo%20Cloud%20Credentials/page/Credentials)
-    for `<PASSWORD>`
-
-    ```shell
-    Host: https://admin:<PASSWORD>@chef.imdemocloud.com:9292/
-    ```
-
-*   To push the gem to our gem server:
-
-    ```shell
-    gem inabox pkg/*.gem
-    # https://chef.imdemocloud.com:9292
+-   Should the need arise, you can install a local version as
+    follows:
+    
+    ``` 
+    gem build *.gemspec
+    gem install *.gem --ignore-dependencies
     ```
