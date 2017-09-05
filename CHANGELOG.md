@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
-## 2.0.7
+## 2.0.8
 ### Changed
 -   Removed ExceptionNotifier integration; just use Sentry
 -   Renamed `dswb-error_handler` to `safety_goggles`
