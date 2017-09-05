@@ -35,7 +35,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.4"
 
   # Test coverage report
-  spec.add_development_dependency "simplecov", '~> 0.11', ">= 0.11.1"
+  spec.add_development_dependency "simplecov", "~> 0.11", ">= 0.11.1"
 
   # Continuous Integration
   spec.add_development_dependency "travis", "~> 1.8"
