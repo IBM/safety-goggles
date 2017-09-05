@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    safety_goggles (2.0.4)
+    safety_goggles (2.0.5)
       sentry-raven (~> 2.6)
 
 GEM
