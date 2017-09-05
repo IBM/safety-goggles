@@ -4,7 +4,7 @@
 set -ex
 
 echo "Building gem"
-gem build companion_cube.gemspec
+gem build *.gemspec
 
 # Log into Artifactory
 echo "Getting repository api key"
@@ -14,6 +14,6 @@ echo "Setting credential permissions"
 chmod 0600 ~/.gem/credentials
 
 echo "Publishing gem"
-gem push companion_cube*.gem --host "$ART_URL"
+gem push *.gem --host "$ART_URL"
 
 echo "Gem published"
