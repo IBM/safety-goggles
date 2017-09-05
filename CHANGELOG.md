@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 -   Renamed `dswb-error_handler` to `safety_goggles`
 -   Renamed `Dswb:ErrorHandler` to `SafetyGoggles::Handler`
 -   Integrated with Travis CI and Artifactory
+-   Updated Ruby from `2.3.1` to `2.3.4`
 
 ## 1.2.2
 ### Changed
