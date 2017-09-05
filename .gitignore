@@ -9,6 +9,7 @@ pkg/
 production.secret.env
 .ruby-env
 staging.secret.env
+.ruby-version
 
 # Created by https://www.gitignore.io/api/rails,rubymine
 
