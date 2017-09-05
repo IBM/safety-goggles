@@ -6,8 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
-## 2.0.1
+## 2.0.2
 ### Changed
+-   Removed ExceptionNotifier integration; just use Sentry
 -   Renamed `dswb-error_handler` to `safety_goggles`
 -   Renamed `Dswb:ErrorHandler` to `SafetyGoggles::Handler`
 -   Integrated with Travis CI and Artifactory

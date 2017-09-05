@@ -194,7 +194,7 @@ DEPENDENCIES
   rspec (~> 3.4)
   rubocop (~> 0.40)
   safety_goggles!
-  simplecov (>= 0.11.1)
+  simplecov (~> 0.11, >= 0.11.1)
   travis (~> 1.8)
 
 BUNDLED WITH
