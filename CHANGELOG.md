@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
-## 2.0.0
+## 2.0.1
 ### Changed
 -   Renamed `dswb-error_handler` to `safety_goggles`
 -   Renamed `Dswb:ErrorHandler` to `SafetyGoggles::Handler`

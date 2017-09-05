@@ -7,10 +7,10 @@ Gem::Specification.new do |spec|
   spec.version       = File.open("VERSION", "r").read.strip
   spec.authors       = ["Leons Petrazickis"]
   spec.email         = ["leonsp@ca.ibm.com"]
-  spec.summary       = "Rails error handler that integrates with Sentry"
-  spec.description   = spec.summary
+  spec.summary       = "Rails error handler"
+  spec.description   = "Rails error handler that integrates with Sentry and generates 4xx error responses"
   spec.homepage      = "http://cognitiveclass.ai"
-  spec.license       = "Copyright (c) 2017 IBM"
+  spec.license       = "Nonstandard"
 
   # TODO: Remove dependency on git.
   spec.files         = %x(git ls-files).split($INPUT_RECORD_SEPARATOR)
@@ -22,14 +22,14 @@ Gem::Specification.new do |spec|
   #  so that Sinatra doesn't conflict with Rails5 stuff
 
   # Force dependency update
-  spec.add_development_dependency "nokogiri", ">= 1.7.2"
+  spec.add_development_dependency "nokogiri", "~> 1.7", ">= 1.7.2"
 
   # ActionController, ActiveRecord, and ActiveModel error definitions
-  spec.add_development_dependency "rails", ">= 5.0.2"
+  spec.add_development_dependency "rails", "~> 5.0", ">= 5.0.2"
 
   # To install the gem locally:
   # bundle exec rake install
-  spec.add_development_dependency "rake"
+  spec.add_development_dependency "rake", "~> 12.0"
 
   # Unit tests
   spec.add_development_dependency "rspec", "~> 3.4"
@@ -43,13 +43,10 @@ Gem::Specification.new do |spec|
   # Automatic Ruby code style checking tool. Aims to enforce the community-driven
   # Ruby Style Guide.
   # https://github.com/bbatsov/rubocop
-  spec.add_development_dependency "rubocop"
+  spec.add_development_dependency "rubocop", "~> 0.40"
 
   spec.add_development_dependency "bundler-audit", "~> 0.6"
 
-  # Send stacktraces
-  spec.add_runtime_dependency "exception_notification"
-
   # Also send stacktraces
-  spec.add_runtime_dependency "sentry-raven"
+  spec.add_runtime_dependency "sentry-raven", "~> 2.6"
 end

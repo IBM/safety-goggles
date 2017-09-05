@@ -1,5 +1,3 @@
-require "exception_notification"
-
 module SafetyGoggles
   class Handler
     ERROR_CODES = {
@@ -42,12 +40,6 @@ module SafetyGoggles
         extra: { nice_backtrace: get_backtrace(error) },
         level: severity,
         tags:  { code: code, class: error.class })
-
-      if %w(fatal).include?(severity) && !defined?(ExceptionNotifier).nil?
-        ExceptionNotifier.notify_exception(error,
-          env:  env,
-          data: { message: error.to_s })
-      end
     end
     # :nocov:
 
