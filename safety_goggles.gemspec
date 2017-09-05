@@ -25,7 +25,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "nokogiri", "~> 1.7", ">= 1.7.2"
 
   # ActionController, ActiveRecord, and ActiveModel error definitions
-  spec.add_development_dependency "rails", "~> 5.0", ">= 5.0.2"
+  spec.add_development_dependency "activerecord", "~> 5.0", ">= 5.0.2"
+  spec.add_development_dependency "activemodel", "~> 5.0", ">= 5.0.2"
+  spec.add_development_dependency "actionpack", "~> 5.0", ">= 5.0.2"
 
   # To install the gem locally:
   # bundle exec rake install
