@@ -15,7 +15,7 @@ before_install:
 
 # We don't want deployment mode
 # It gets confusing when the gem we're building is part of the Gemfile.lock
-install: bundle install --jobs=3 --retry=3
+install: bundle install --jobs=3 --retry=3 --path vendor/bundle
 
 script:
   - bundle audit --update
