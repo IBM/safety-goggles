@@ -29,6 +29,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "activemodel", "~> 5.0", ">= 5.0.2"
   spec.add_development_dependency "actionpack", "~> 5.0", ">= 5.0.2"
 
+  spec.add_development_dependency "bundler-audit", "~> 0.6"
+
   # To install the gem locally:
   # bundle exec rake install
   spec.add_development_dependency "rake", "~> 12.0"
@@ -46,8 +48,6 @@ Gem::Specification.new do |spec|
   # Ruby Style Guide.
   # https://github.com/bbatsov/rubocop
   spec.add_development_dependency "rubocop", "~> 0.40"
-
-  spec.add_development_dependency "bundler-audit", "~> 0.6"
 
   # Also send stacktraces
   spec.add_runtime_dependency "sentry-raven", "~> 2.6"
