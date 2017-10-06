@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## 2.0.11
+### Fixed
+-   Fixed requires for code that just does `require "safety_goggles"`
+
 ## 2.0.10
 ### Changed
 -   Removed ExceptionNotifier integration; just use Sentry
