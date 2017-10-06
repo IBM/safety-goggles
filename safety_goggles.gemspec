@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   #  so that Sinatra doesn't conflict with Rails5 stuff
 
   # Force dependency update
-  spec.add_development_dependency "nokogiri", "~> 1.7", ">= 1.7.2"
+  spec.add_development_dependency "nokogiri", "~> 1.8", ">= 1.8.1"
 
   # ActionController, ActiveRecord, and ActiveModel error definitions
   spec.add_development_dependency "activerecord", "~> 5.0", ">= 5.0.2"

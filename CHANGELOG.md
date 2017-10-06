@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## 2.0.11
 ### Fixed
 -   Fixed requires for code that just does `require "safety_goggles"`
+-   Bumped `nokogiri` to `>= 1.8.1` due to security issue
 
 ## 2.0.10
 ### Changed

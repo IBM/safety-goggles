@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    safety_goggles (2.0.10)
+    safety_goggles (2.0.11)
       sentry-raven (~> 2.6)
 
 GEM
@@ -64,14 +64,14 @@ GEM
       addressable (~> 2.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
-    mini_portile2 (2.2.0)
+    mini_portile2 (2.3.0)
     minitest (5.10.1)
     multi_json (1.12.2)
     multipart-post (2.0.0)
     net-http-persistent (2.9.4)
     net-http-pipeline (1.0.1)
-    nokogiri (1.8.0)
-      mini_portile2 (~> 2.2.0)
+    nokogiri (1.8.1)
+      mini_portile2 (~> 2.3.0)
     parser (2.3.1.0)
       ast (~> 2.2)
     powerpack (0.1.1)
@@ -141,7 +141,7 @@ DEPENDENCIES
   activemodel (~> 5.0, >= 5.0.2)
   activerecord (~> 5.0, >= 5.0.2)
   bundler-audit (~> 0.6)
-  nokogiri (~> 1.7, >= 1.7.2)
+  nokogiri (~> 1.8, >= 1.8.1)
   rake (~> 12.0)
   rspec (~> 3.4)
   rubocop (~> 0.40)
