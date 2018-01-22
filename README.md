@@ -49,7 +49,7 @@ before_action do
       ActiveSupport::SecurityUtils.variable_size_secure_compare(password, MY_PASSWORD)
   end
 
-  require "safety_goggles-unauthorized_error"
+  require "safety_goggles/unauthorized_error"
   raise SafetyGoggles::UnauthorizedError, "HTTP Basic: Access denied." unless success
 
   success
