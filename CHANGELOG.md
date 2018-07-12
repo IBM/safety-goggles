@@ -7,11 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
-## [2.1.0][] - 2018-07-12
+## [2.1.1][] - 2018-07-12
 
 ### Added
 
-- Added support for `Net::LDAP::Error` as a 422
+- Added support for `Net::LDAP::Error` as a 422.
 
 ## [2.0.10][] - 2017-09-05
 
@@ -59,7 +59,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Fix for environment check
 
-[unreleased]: https://github.ibm.com/cognitive-class-labs/safety_goggles/compare/2.1.0...HEAD
-[2.1.0]: https://github.ibm.com/cognitive-class-labs/safety_goggles/compare/2.0.10...2.1.0
+[unreleased]: https://github.ibm.com/cognitive-class-labs/safety_goggles/compare/2.1.1...HEAD
+[2.1.1]: https://github.ibm.com/cognitive-class-labs/safety_goggles/compare/2.0.10...2.1.1
 [2.0.10]: https://github.ibm.com/cognitive-class-labs/safety_goggles/compare/v1.2.2...2.0.10
 [1.2.2]: https://github.ibm.com/cognitive-class-labs/safety_goggles/compare/v1.1.0...v1.2.2
