@@ -1,5 +1,6 @@
 # coding: utf-8
-lib = File.expand_path("../lib", __FILE__)
+
+lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
@@ -21,15 +22,20 @@ Gem::Specification.new do |spec|
   # Install geminabox on the system but don't include it here
   #  so that Sinatra doesn't conflict with Rails5 stuff
 
-  # Force dependency update
-  spec.add_development_dependency "nokogiri", "~> 1.7", ">= 1.7.2"
+  # Force dependency update because of vulnerabilities
+  spec.add_development_dependency "loofah", "~> 2.2", ">= 2.2.1"
+  spec.add_development_dependency "nokogiri", "~> 1.8", ">= 1.8.3"
+  spec.add_development_dependency "rails-html-sanitizer", "~> 1.0", ">= 1.0.4"
 
   # ActionController, ActiveRecord, and ActiveModel error definitions
-  spec.add_development_dependency "activerecord", "~> 5.0", ">= 5.0.2"
-  spec.add_development_dependency "activemodel", "~> 5.0", ">= 5.0.2"
   spec.add_development_dependency "actionpack", "~> 5.0", ">= 5.0.2"
+  spec.add_development_dependency "activemodel", "~> 5.0", ">= 5.0.2"
+  spec.add_development_dependency "activerecord", "~> 5.0", ">= 5.0.2"
 
   spec.add_development_dependency "bundler-audit", "~> 0.6"
+
+  # LDAP errors
+  spec.add_development_dependency "net-ldap", "~> 0.16"
 
   # To install the gem locally:
   # bundle exec rake install
@@ -47,7 +53,7 @@ Gem::Specification.new do |spec|
   # Automatic Ruby code style checking tool. Aims to enforce the community-driven
   # Ruby Style Guide.
   # https://github.com/bbatsov/rubocop
-  spec.add_development_dependency "rubocop", "~> 0.40"
+  spec.add_development_dependency "rubocop", "~> 0.49"
 
   # Also send stacktraces
   spec.add_runtime_dependency "sentry-raven", "~> 2.6"

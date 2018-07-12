@@ -6,7 +6,6 @@ convenience.
 You still need to configure Sentry and ExceptionNotification gems
 separately. This gem is for invocation, not configuration.
 
-
 ## Installation
 
 ```ruby
@@ -58,17 +57,17 @@ end
 
 ## Build as a Gem
 
--   Travis CI will build and publish a new version of the gem 
-    whenever you push a new tag:
-    
-    ```
-    git tag -a 2.0.0 -m v2.0.0 && git push --tags
-    ```
+- Travis CI will build and publish a new version of the gem
+  whenever you push a new tag:
 
--   Should the need arise, you can install a local version as
-    follows:
-    
-    ``` 
-    gem build *.gemspec
-    gem install *.gem --ignore-dependencies
-    ```
+  ```
+  git tag -a 2.0.0 -m v2.0.0 && git push --tags
+  ```
+
+- Should the need arise, you can install a local version as
+  follows:
+
+  ```
+  gem build *.gemspec
+  gem install *.gem --ignore-dependencies
+  ```

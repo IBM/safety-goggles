@@ -4,20 +4,29 @@
 AllCops:
   # Include gemspec and Rakefile
   Include:
+    - '**/Gemfile'
     - '**/Rakefile'
+    - '**/*.gemspec'
     - '**/*.jbuilder'
+    - '**/*.rb'
   Exclude:
+    - 'bin/bundle'
     - 'bin/rails'
     - 'bin/rake'
+    - 'bin/setup'
     - 'bin/spring'
-    - 'config/initializers/*'
-    # - 'config/routes.rb'
+    - 'bin/update'
+    - 'config.ru'
+    - 'config/application.rb'
+    - 'config/boot.rb'
+    - 'config/environment.rb'
     - 'db/migrate/**/*'
     - 'db/schema.rb'
     - 'secure_rails'
     - 'test/**/*'
     - 'tmp/**/*'
-    
+    - 'vendor/**/*'
+
 Rails:
   Enabled: true
 
@@ -31,21 +40,30 @@ AlignParameters:
 ClassLength:
   Max: 300
 
-# Crashes in Rubocop 0.21.0
-Delegate:
-  Enabled: true
-
 Encoding:
   Enabled: false
-
-# Not compatible with Rails < 4
-# FindBy:
-#   Enabled: false
 
 IndentHash:
   EnforcedStyle: consistent
 
 HasAndBelongsToMany:
+  Enabled: false
+
+Layout/AlignHash:
+  # Alignment of entries using colon as separator. Valid values are:
+  #
+  # key - left alignment of keys
+  # a: 0
+  # bb: 1
+  # separator - alignment of colons, keys are right aligned
+  # a: 0
+  # bb: 1
+  # table - left alignment of keys and values
+  # a: 0
+  # bb: 1
+  EnforcedColonStyle: table
+
+Layout/SpaceBeforeFirstArg:
   Enabled: false
 
 LineLength:
@@ -62,27 +80,10 @@ Metrics/AbcSize:
 StringLiterals:
   EnforcedStyle: double_quotes
 
-Style/AlignHash:
-  # Alignment of entries using colon as separator. Valid values are:
-  #
-  # key - left alignment of keys
-  # a: 0
-  # bb: 1
-  # separator - alignment of colons, keys are right aligned
-  # a: 0
-  # bb: 1
-  # table - left alignment of keys and values
-  # a: 0
-  # bb: 1
-  EnforcedColonStyle: table
-
 Style/AsciiComments:
   Enabled: false
 
 Style/Documentation:
-  Enabled: false
-
-Style/SpaceBeforeFirstArg:
   Enabled: false
 
 Style/CommandLiteral:

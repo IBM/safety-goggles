@@ -4,16 +4,19 @@ require "active_model/validations"
 require "active_model/validator"
 require "active_record"
 
+require "net/ldap"
+
 require "safety_goggles/handler"
 require "safety_goggles/record_not_found_error"
 require "safety_goggles/unauthorized_error"
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe(SafetyGoggles::Handler) do
   describe :handle_error do
     it "doesn't throw any errors" do
       begin
         raise SafetyGoggles::UnauthorizedError, "Just testing"
-      rescue => error
+      rescue StandardError => error
         expect { SafetyGoggles::Handler.handle_error(error) }.not_to raise_error
       end
     end
@@ -49,6 +52,7 @@ RSpec.describe(SafetyGoggles::Handler) do
       expect(SafetyGoggles::Handler.handle_error(ActiveRecord::RecordNotUnique.new("Hi"))).to eq(422)
       expect(SafetyGoggles::Handler.handle_error(ActionController::UnpermittedParameters.new(["Hi"]))).to eq(422)
       expect(SafetyGoggles::Handler.handle_error(ArgumentError.new("Hi"))).to eq(422)
+      expect(SafetyGoggles::Handler.handle_error(Net::LDAP::Error.new("Hi"))).to eq(422)
     end
 
     it "handles 422s with ActiveModel" do
@@ -72,3 +76,4 @@ RSpec.describe(SafetyGoggles::Handler) do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

@@ -8,6 +8,7 @@ module SafetyGoggles
       "ActiveRecord::RecordNotFound" => 404,
       "ActiveRecord::RecordNotUnique" => 422,
       "ArgumentError" => 422,
+      "Net::LDAP::Error" => 422,
       "SafetyGoggles::RecordNotFoundError" => 404,
       "SafetyGoggles::UnauthorizedError" => 401,
       "SecurityError" => 403
@@ -45,7 +46,11 @@ module SafetyGoggles
 
     def self.serious_env?
       return false unless defined?(Rails)
+      # :nocov:
+      # rubocop:disable Rails/UnknownEnv
       Rails.env.production? || Rails.env.staging?
+      # rubocop:enable Rails/UnknownEnv
+      # :nocov:
     end
 
     def self.get_backtrace(error)
@@ -60,7 +65,7 @@ module SafetyGoggles
     end
 
     def self.guess_env
-      return Rails.env if defined?(Rails) && Rails.respond_to?(:env) && Rails.env.present?
+      return Rails.env if defined?(Rails) && Rails.respond_to?(:env)
       "development"
     end
   end
