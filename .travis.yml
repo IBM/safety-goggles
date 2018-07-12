@@ -27,7 +27,6 @@ deploy:
   script: ci/push.sh
   on:
     tags: true
-    repo: dswb/safety_goggles
 
 notifications:
   slack:
