@@ -3,6 +3,7 @@
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
+# rubocop:disable Metrics/BlockLength
 Gem::Specification.new do |spec|
   spec.name          = "safety_goggles"
   spec.version       = File.open("VERSION", "r").read.strip
@@ -58,3 +59,4 @@ Gem::Specification.new do |spec|
   # Also send stacktraces
   spec.add_runtime_dependency "sentry-raven", "~> 2.6"
 end
+# rubocop:enable Metrics/BlockLength
