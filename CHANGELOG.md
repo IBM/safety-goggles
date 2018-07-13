@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [2.1.1][] - 2018-07-13
+
+### Fixed
+
+- Fixed loading the module.
+
 ## [2.1.0][] - 2018-07-12
 
 ### Added
@@ -59,7 +65,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Fix for environment check
 
-[unreleased]: https://github.ibm.com/cognitive-class-labs/safety_goggles/compare/2.1.0...HEAD
+[unreleased]: https://github.ibm.com/cognitive-class-labs/safety_goggles/compare/2.1.1...HEAD
+[2.1.1]: https://github.ibm.com/cognitive-class-labs/safety_goggles/compare/2.1.0...2.1.1
 [2.1.0]: https://github.ibm.com/cognitive-class-labs/safety_goggles/compare/2.0.10...2.1.0
 [2.0.10]: https://github.ibm.com/cognitive-class-labs/safety_goggles/compare/v1.2.2...2.0.10
 [1.2.2]: https://github.ibm.com/cognitive-class-labs/safety_goggles/compare/v1.1.0...v1.2.2
