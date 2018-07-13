@@ -3,6 +3,9 @@
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
+echo "Clean the environment"
+rm -f *.gem
+
 echo "Building gem"
 gem build *.gemspec
 
