@@ -3,8 +3,10 @@ certs/
 deploy/production/production.yml
 deploy/staging/staging.yml
 development/
-.idea/
 .DS_Store
+.env
+*.gem
+.idea/
 pkg/
 production.secret.env
 .ruby-env
