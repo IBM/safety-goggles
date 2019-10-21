@@ -29,6 +29,6 @@ before_deploy:
 
 deploy:
   provider: script
-  script: gem push *.gemspec
+  script: 'gem push safety_goggles-${TRAVIS_TAG:?}.gemspec'
   on:
     tags: true
