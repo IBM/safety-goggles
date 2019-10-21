@@ -1,0 +1,62 @@
+---
+# Install pre-commit via either of these:
+# pip install pre-commit
+# brew install pre-commit
+#
+# Enable the current repo for pre-commit:
+# pre-commit install
+#
+# Check current commit:
+# pre-commit
+#
+# Check all files:
+# pre-commit run --all-files
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v2.3.0
+  hooks:
+  - id: check-ast # Python syntax
+  - id: check-case-conflict # VERSION and version in same repo
+  - id: check-docstring-first # Python docs
+  - id: check-executables-have-shebangs # #!/bin/bash
+  - id: check-json
+  - id: check-merge-conflict
+  - id: check-symlinks
+  - id: check-xml
+  - id: check-yaml
+  - id: debug-statements # Python debug stuff
+  - id: detect-aws-credentials
+    args:
+    - --allow-missing-credentials
+  - id: detect-private-key
+  - id: end-of-file-fixer # Forces newline at the end
+  - id: flake8 # Lint Python stuff
+  - id: mixed-line-ending
+#  - id: no-commit-to-branch # Protect master
+  - id: pretty-format-json
+    args:
+    - --autofix
+  - id: requirements-txt-fixer
+  - id: sort-simple-yaml
+  - id: trailing-whitespace
+
+# Install detect-secrets:
+# pip install detect-secrets
+#
+# For every additional repo, generate a known secrets file:
+# detect-secrets scan > .secrets.baseline
+#
+# And whitelist known good stuff:
+# detect-secrets audit .secrets.baseline
+#
+# You can update and whitelist more later:
+# detect-secrets scan --update .secrets.baseline
+#
+# https://github.com/Yelp/detect-secrets
+- repo: https://github.com/Yelp/detect-secrets
+  rev: v0.12.7
+  hooks:
+  - id: detect-secrets
+    args: ["--baseline", ".secrets.baseline"]
+    exclude: .*/tests/.*
+    language_version: python3

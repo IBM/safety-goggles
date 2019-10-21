@@ -1,53 +1,43 @@
-# inherit_from: ../.rubocop.yml
+---
+require:
+  - rubocop-gitlab-security
+  - rubocop-performance
+  - rubocop-rails
 
 # Common configuration.
 AllCops:
   # Include gemspec and Rakefile
   Include:
-    - '**/Gemfile'
-    - '**/Rakefile'
-    - '**/*.gemspec'
-    - '**/*.jbuilder'
-    - '**/*.rb'
+    - "**/Gemfile"
+    - "**/Rakefile"
+    - "**/*.gemspec"
+    - "**/*.jbuilder"
+    - "**/*.rb"
   Exclude:
-    - 'bin/bundle'
-    - 'bin/rails'
-    - 'bin/rake'
-    - 'bin/setup'
-    - 'bin/spring'
-    - 'bin/update'
-    - 'config.ru'
-    - 'config/application.rb'
-    - 'config/boot.rb'
-    - 'config/environment.rb'
-    - 'db/migrate/**/*'
-    - 'db/schema.rb'
-    - 'secure_rails'
-    - 'test/**/*'
-    - 'tmp/**/*'
-    - 'vendor/**/*'
+    - "bin/bundle"
+    - "bin/rails"
+    - "bin/rake"
+    - "bin/setup"
+    - "bin/spring"
+    - "bin/update"
+    - "config.ru"
+    - "config/application.rb"
+    - "config/boot.rb"
+    - "config/environment.rb"
+    - "db/migrate/**/*"
+    - "db/schema.rb"
+    - "secure_rails"
+    - "test/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
+  TargetRubyVersion: 2.6
 
-Rails:
-  Enabled: true
-
-# # Not compatible with Rails < 4
-# ActionFilter:
-#   Enabled: false
-
-AlignParameters:
-  EnforcedStyle: with_fixed_indentation
-
-ClassLength:
-  Max: 300
 
 Encoding:
   Enabled: false
 
-IndentHash:
-  EnforcedStyle: consistent
-
-HasAndBelongsToMany:
-  Enabled: false
+Rails:
+  Enabled: true
 
 Layout/AlignHash:
   # Alignment of entries using colon as separator. Valid values are:
@@ -63,21 +53,33 @@ Layout/AlignHash:
   # bb: 1
   EnforcedColonStyle: table
 
+Layout/IndentFirstHashElement:
+  EnforcedStyle: consistent
+
 Layout/SpaceBeforeFirstArg:
   Enabled: false
 
-LineLength:
+Metrics/ClassLength:
+  Max: 300
+
+Metrics/LineLength:
   Max: 120
 
 # Default 10
-MethodLength:
+Metrics/MethodLength:
   Max: 30
 
 # Default 15
 Metrics/AbcSize:
   Max: 30
 
-StringLiterals:
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Style/AliParameters:
+  EnforcedStygnle: with_fixed_indentation
+
+Style/StringLiterals:
   EnforcedStyle: double_quotes
 
 Style/AsciiComments:

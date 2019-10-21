@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "action_controller"
 require "active_model"
 require "active_model/validations"
@@ -14,11 +16,9 @@ require "safety_goggles/unauthorized_error"
 RSpec.describe(SafetyGoggles::Handler) do
   describe :handle_error do
     it "doesn't throw any errors" do
-      begin
-        raise SafetyGoggles::UnauthorizedError, "Just testing"
-      rescue StandardError => error
-        expect { SafetyGoggles::Handler.handle_error(error) }.not_to raise_error
-      end
+      raise SafetyGoggles::UnauthorizedError, "Just testing"
+    rescue StandardError => e
+      expect { SafetyGoggles::Handler.handle_error(e) }.not_to raise_error
     end
 
     ERROR_CODES = {

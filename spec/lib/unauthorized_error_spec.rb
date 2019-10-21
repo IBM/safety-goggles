@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "safety_goggles/unauthorized_error"
 
 RSpec.describe(SafetyGoggles::UnauthorizedError) do

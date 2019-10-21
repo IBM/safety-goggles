@@ -18,6 +18,7 @@ precommit:
 	-rubocop -Da
 	-bundle
 	-bundle-audit check --update
+	-pre-commit run --all-files
 
 spec:
 	bundle exec rspec

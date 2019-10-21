@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SafetyGoggles
   class Handler
     ERROR_CODES = {
@@ -38,14 +40,15 @@ module SafetyGoggles
       severity = SEVERITIES.fetch(code, "warning")
 
       Raven.capture_exception(error,
-        extra: { nice_backtrace: get_backtrace(error) },
-        level: severity,
-        tags:  { code: code, class: error.class })
+                              extra: { nice_backtrace: get_backtrace(error) },
+                              level: severity,
+                              tags:  { code: code, class: error.class })
     end
     # :nocov:
 
     def self.serious_env?
       return false unless defined?(Rails)
+
       # :nocov:
       # rubocop:disable Rails/UnknownEnv
       Rails.env.production? || Rails.env.staging?
@@ -56,16 +59,19 @@ module SafetyGoggles
     def self.get_backtrace(error)
       return [] unless error.respond_to?(:backtrace)
       return [] if error.backtrace.nil?
+
       error.backtrace.reject { |line| %r{/gems/}.match(line).present? }
     end
 
     def self.logger
       return Rails.logger if defined?(Rails) && Rails.respond_to?(:logger) && Rails.logger.present?
+
       Logger.new(STDOUT)
     end
 
     def self.guess_env
       return Rails.env if defined?(Rails) && Rails.respond_to?(:env)
+
       "development"
     end
   end

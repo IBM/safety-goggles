@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "safety_goggles/record_not_found_error"
 
 RSpec.describe(SafetyGoggles::RecordNotFoundError) do
