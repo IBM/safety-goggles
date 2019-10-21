@@ -27,9 +27,10 @@ before_deploy:
   - chmod 600 ~/.gem/credentials
   - gem build *.gemspec
   - git checkout -- Gemfile.lock
+  - ls -la
 
 deploy:
   provider: script
-  script: 'gem push safety_goggles-${TRAVIS_TAG:?}.gemspec'
+  script: 'gem push safety_goggles-${TRAVIS_TAG:?}.gem'
   on:
     tags: true
