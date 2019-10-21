@@ -32,5 +32,6 @@ before_deploy:
 deploy:
   provider: script
   script: 'gem push safety_goggles-${TRAVIS_TAG:?}.gem'
+  skip_cleanup: true
   on:
     tags: true
