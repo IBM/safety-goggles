@@ -5,7 +5,7 @@ lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 Gem::Specification.new do |spec|
   spec.name          = "safety_goggles"
-  spec.version       = File.open("VERSION", "r").read.strip
+  spec.version       = ENV.fetch("TRAVIS_TAG", "ci")
   spec.authors       = ["Leons Petrazickis"]
   spec.email         = ["leonsp@ca.ibm.com"]
   spec.summary       = "Rails error handler"
