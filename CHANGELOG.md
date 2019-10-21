@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
-## [2.1.2][] - 2019-10-21
+## [2.2.0][] - 2019-10-21
 
 ## Changed
 
@@ -71,8 +71,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Fix for environment check
 
-[unreleased]: https://github.com/IBM/safety-goggles/compare/2.1.2...HEAD
-[2.1.2]: https://github.com/IBM/safety-goggles/compare/2.1.1...2.1.2
+[unreleased]: https://github.com/IBM/safety-goggles/compare/2.2.0...HEAD
+[2.2.0]: https://github.com/IBM/safety-goggles/compare/2.1.1...2.2.0
 [2.1.1]: https://github.com/IBM/safety-goggles/compare/2.1.0...2.1.1
 [2.1.0]: https://github.com/IBM/safety-goggles/compare/2.0.10...2.1.0
 [2.0.10]: https://github.com/IBM/safety-goggles/compare/v1.2.2...2.0.10
