@@ -9,6 +9,7 @@ cache:
 
 before_install:
   - gem install bundler -v 1.16.2
+  - gem install bundler-audit -v 0.6.1
 
 # We don't want deployment mode
 # It gets confusing when the gem we're building is part of the Gemfile.lock
