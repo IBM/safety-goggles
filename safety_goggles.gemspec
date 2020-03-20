@@ -20,10 +20,10 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # ActionController, ActiveRecord, and ActiveModel error definitions
-  spec.add_development_dependency "actionpack", "~> 5.2"
-  spec.add_development_dependency "actionview", "~> 5.2", ">= 5.2.2.1"
-  spec.add_development_dependency "activemodel", "~> 5.2"
-  spec.add_development_dependency "activerecord", "~> 5.2"
+  spec.add_development_dependency "actionpack", "~> 6.0"
+  spec.add_development_dependency "actionview", ">= 5.2.2.1", "~> 6.0"
+  spec.add_development_dependency "activemodel", "~> 6.0"
+  spec.add_development_dependency "activerecord", "~> 6.0"
 
   spec.add_development_dependency "bundler-audit", "~> 0.6"
 
